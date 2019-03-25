@@ -1,0 +1,1 @@
+# openshift_golang_test
