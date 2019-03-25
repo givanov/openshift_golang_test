@@ -1,0 +1,26 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: docker-build
+  namespace: georgi
+  labels:
+    name: docker-build
+spec:
+  triggers:
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/givanov/openshift_golang_test.git'
+  strategy:
+    type: Docker
+    dockerStrategy:
+      env:
+        - name: ITEM
+          value: cats
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'givanov-go-sample:latest'

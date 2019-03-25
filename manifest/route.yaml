@@ -1,0 +1,15 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: givanov
+  namespace: georgi
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  host: givanov.apps.poc.openshift.zeus.builtwith.solar
+  to:
+    kind: Service
+    name: example
+    weight: 100
+  port:
+    targetPort: http

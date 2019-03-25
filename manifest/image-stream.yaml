@@ -1,0 +1,20 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/display-name: Givanov test app go
+  name: givanov-go-sample
+  namespace: georgi
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: latest
+      annotations:
+        description: >-
+          Test go app image
+        iconClass: icon-go-gopher
+        openshift.io/display-name: Givanov test app go
+      importPolicy: {}
+      referencePolicy:
+        type: Local
